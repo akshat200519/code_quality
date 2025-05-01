@@ -1,0 +1,28 @@
+name: Code Quality & Linting
+
+on: [push, pull_request]  # Runs on every push and PR
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu machine
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Choose Python version
+
+      - name: Install dependencies
+        run: |
+          pip install flake8 pylint bandit
+
+      - name: Run Flake8 (Style Checks)
+        run: flake8 sample.py
+
+      - name: Run Pylint (Code Quality)
+        run: pylint sample.py
+
+      - name: Run Bandit (Security Check)
+        run: bandit -r sample.py
