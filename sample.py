@@ -1,26 +1,33 @@
-import os, sys  # Multiple imports on a single line
+import os
+import sys  # Imports are now on separate lines
 
 def example_function():
-  print("This is an example function")  # Indentation error: This line should be indented
-
-def unused_function():  # Unused function will be flagged
-  pass
+    print("This is an example function")  # Correct indentation
 
 def divide_numbers(a, b):
-  result = a / b  # Potential ZeroDivisionError when b is zero
-  return result
+    """Divides two numbers and handles ZeroDivisionError"""
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        result = None  # Return None for division by zero
+        print("Error: Cannot divide by zero.")
+    return result
 
-class myClass:  # Class name doesn't follow PEP8 (should be MyClass)
-  def __init__(self, value):
-    self.value = value
+class MyClass:  # Class name now follows PEP8 (PascalCase)
+    def __init__(self, value):
+        self.value = value
   
-  def get_value(self):
-    return self.value
+    def get_value(self):
+        return self.value
 
-def security_risk():
-  user_input = input("Enter a command: ")
-  os.system(user_input)  # Security risk: This could execute harmful commands
+def secure_execute(command):
+    """Executes a command safely (avoiding security risks)"""
+    safe_commands = ['ls', 'echo']  # Only allow a predefined list of safe commands
+    if command in safe_commands:
+        os.system(command)
+    else:
+        print("Security alert: Command not allowed.")
 
-x = { 'key' : "value" }  # Incorrect dictionary spacing, should be {'key': 'value'}
+x = {'key': 'value'}  # Correct dictionary spacing
 
-print( "Hello, World!" )  # Unnecessary spaces around the parentheses
+print("Hello, World!")  # Removed unnecessary spaces
