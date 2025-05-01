@@ -1,6 +1,6 @@
 name: Code Quality & Linting
 
-on: [push, pull_request]
+on: [push, pull_request]  # Runs on every push and PR
 
 jobs:
   lint:
@@ -12,20 +12,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.10'  # Choose your desired version
 
       - name: Install dependencies
         run: |
-          pip install flake8 pylint bandit
+          pip install flake8 pylint bandit  # Install linting tools
 
-      - name: Run Flake8
-        run: flake8 sample.py
+      - name: Run Flake8 (Style Checks)
+        run: flake8 sample.py  # Run flake8
 
-      - name: Run Pylint
-        run: pylint sample.py
+      - name: Run Pylint (Code Quality)
+        run: pylint sample.py  # Run pylint for code quality checks
 
-      - name: Run Bandit
-        run: bandit -r sample.py
+      - name: Run Bandit (Security Check)
+        run: bandit -r sample.py  # Run Bandit for security analysis
 
   sonarcloud:
     name: SonarCloud Scan
@@ -34,13 +34,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v2
+        uses: SonarSource/sonarcloud-github-action@master
         with:
-          args: >
-            -Dsonar.organization=<your-sonarcloud-org-name>
-            -Dsonar.projectKey=<your-sonarcloud-project-key>
-            -Dsonar.python.version=3
-            -Dsonar.sources=.
-            -Dsonar.host.url=https://sonarcloud.io
+          organization: <your-sonarcloud-org-name>  # Your SonarCloud organization
+          projectKey: <your-sonarcloud-project-key>  # Your SonarCloud project key
         env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}  # Access token for SonarCloud

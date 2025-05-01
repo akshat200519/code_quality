@@ -1,0 +1,4 @@
+# bandit.yml
+plugins:
+  - bandit.plugins.files
+  - bandit.plugins.credentials
