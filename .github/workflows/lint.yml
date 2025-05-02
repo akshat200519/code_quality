@@ -39,7 +39,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v2
         with:
           args: >
-            -Dsonar.organization=Akshat Singh # Using the organization name from the image
+            -Dsonar.organization="Akshat Singh" # Using the organization name from the image
             -Dsonar.projectKey=akshat200519_code_quality # REPLACE WITH YOUR ACTUAL PROJECT KEY
             -Dsonar.python.version=3.10 # Match your Python version
             -Dsonar.sources=.
