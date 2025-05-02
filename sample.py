@@ -1,6 +1,7 @@
 # This is a sample Python code that aims to be compatible with flake8, pylint, and bandit.
 
 import math  # Import used
+import sys
 
 # Define a constant
 MAX_VALUE = 100
