@@ -1,7 +1,6 @@
 # This is a sample Python code that aims to be compatible with flake8, pylint, and bandit.
 
-import math
-
+import math  # Import used
 
 # Define a constant
 MAX_VALUE = 100
@@ -53,4 +52,4 @@ if __name__ == "__main__":
     file_content = read_file_content("example.txt")
     if file_content:
         print(f"Content of example.txt: {file_content[:50]}...")  # Print only first 50 chars
-    print()  # Add a newline at the end of the file
+    print("End of program") #Added a print statement
