@@ -54,4 +54,3 @@ if __name__ == "__main__":
     if file_content:
         print(f"Content of example.txt: {file_content[:50]}...")  # Print only first 50 chars
     print()  # Add a newline at the end of the file
-    
