@@ -52,4 +52,4 @@ if __name__ == "__main__":
     file_content = read_file_content("example.txt")
     if file_content:
         print(f"Content of example.txt: {file_content[:50]}...")  # Print only first 50 chars
-    print("End of program") #Added a print statement
+    print("End of program")  # Added a print statement
